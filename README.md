@@ -10,7 +10,7 @@ This project is made using Python and Flask framework. it is a social media webs
 <h3> Vulnerabilities </h3>
 
 The site is tested for some vulnerabilities such as:
-* SQL injection: The site is not vulnerable to SQLI because we use parameterized queiries.
+* SQL injection: The site is not vulnerable to SQLI because we use parameterized queries.
 * XSS: The site is not vulnerable to XSS because Flask filters text from scripts
 * Unrestricted file upload: We add some filters to check for file extension so we can solve this vulnerability
 
