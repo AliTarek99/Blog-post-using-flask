@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}My Profile{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="my-4">My Profile</h1>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Email</h5>
+                        <p class="card-text">{{ email[0] }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <h2 class="my-4">My Blog Posts</h2>
+                <div class="row">
+                    {% for post in posts %}
+                        <div class="col-md-6 mb-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ post[1] }}</h5>
+                                    <p class="card-text">{{ post[2] }}</p>
+                                    <a href="{{ url_for('post', post_id = post[0]) }}" class="btn btn-primary">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

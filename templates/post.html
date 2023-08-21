@@ -1,0 +1,40 @@
+{% extends 'base.html'%}
+{% block title %}{{ post[1] }}{% endblock %}
+{% block content %}
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>{{ post[1] }}</h2>
+                <p>Written by: {{ post[3] }}</p>
+                <hr>
+                {% for image in images %}
+                    <img src="{{ url_for('static', filename=image[0]) }}">
+                {% endfor %}
+                <p>{{ post[2] }}</p>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <h3>Comments</h3>
+                <hr>
+                {% for comment in comments %}
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ comment[2] }}</h5>
+                            <p class="card-text">{{ comment[1] }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+                <h4>Add a comment</h4>
+                <hr>
+                <form method="POST" action="/post/{{post[0]}}">
+                    <div class="form-group">
+                        <label for="comment">Comment:</label>
+                        <textarea class="form-control" id="comment" name="comment" rows="3" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
